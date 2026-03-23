@@ -1,3 +1,4 @@
+import PageHeader from "@/components/PageHeader";
 import RentalCard from "../../components/RentalCard";
 
 export default function LocationPage() {
@@ -5,6 +6,9 @@ export default function LocationPage() {
 
   return (
     <main className="px-6 md:px-18 py-10">
+
+        <PageHeader title="Location véhicule" />
+
       <h1 className="text-3xl font-bold mb-6">سيارات a louer</h1>
 
       {/* Recherche */}

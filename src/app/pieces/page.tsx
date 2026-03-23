@@ -3,6 +3,7 @@
 import PieceCard from "../../components/PieceCard"
 import PiecesSearch from "../../components/PiecesSearch"
 import PieceOrderForm from "../../components/PieceOrderForm"
+import PageHeader from "@/components/PageHeader"
 
 export default function PiecesPage() {
 
@@ -10,6 +11,8 @@ export default function PiecesPage() {
 
   return (
     <main className="px-6 md:px-10 py-10 space-y-10">
+
+        <PageHeader title="Commander une pièce" />
 
       {/* Header */}
       <div>

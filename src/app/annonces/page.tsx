@@ -1,3 +1,4 @@
+import PageHeader from "@/components/PageHeader"
 import AnnonceCard from "../../components/AnnonceCard"
 import AnnonceFilters from "../../components/AnnonceFilters"
 
@@ -14,6 +15,8 @@ export default function AnnoncesPage({
 
   return (
     <main className="px-6 md:px-10 py-10">
+
+      <PageHeader title="Location vehicule" />
 
       <h1 className="text-3xl font-bold mb-6">
         Browse vehicles & parts

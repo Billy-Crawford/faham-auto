@@ -8,6 +8,9 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
   const { unreadCount } = useMessages();
 
+  // 🔥 MOCK USER (à remplacer plus tard)
+  const isLoggedIn = true;
+
   return (
     <nav className="w-full px-6 md:px-10 py-6 relative">
       <div className="flex items-center justify-between">
@@ -28,12 +31,11 @@ export default function Navbar() {
             Location
           </Link>
 
-          {/*  Nouveau lien */}
           <Link href="/pieces" className="hover:text-black">
-            Commander une Pièce
+            Commander une pièce
           </Link>
 
-          {/* Messages + badge */}
+          {/* Messages */}
           <div className="relative">
             <Link href="/messages" className="hover:text-black">
               Messages
@@ -46,21 +48,39 @@ export default function Navbar() {
             )}
           </div>
 
+          {/* 🔥 Profil */}
+          {isLoggedIn && (
+            <Link href="/profile" className="hover:text-black font-medium">
+              Profil
+            </Link>
+          )}
+
         </div>
 
         {/* Desktop actions */}
         <div className="hidden md:flex gap-4 items-center">
 
-          <Link href="/auth/register" className="text-gray-600">
-            S'inscrire
-          </Link>
+          {!isLoggedIn ? (
+            <>
+              <Link href="/auth/register" className="text-gray-600">
+                S'inscrire
+              </Link>
 
-          <Link
-            href="/auth/login"
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg"
-          >
-            Se connecter
-          </Link>
+              <Link
+                href="/auth/login"
+                className="bg-indigo-600 text-white px-4 py-2 rounded-lg"
+              >
+                Se connecter
+              </Link>
+            </>
+          ) : (
+            <Link
+              href="/profile"
+              className="bg-gray-100 px-4 py-2 rounded-lg"
+            >
+              Mon profil
+            </Link>
+          )}
 
         </div>
 
@@ -86,46 +106,50 @@ export default function Navbar() {
             Location
           </Link>
 
-          {/*  Pièces mobile */}
           <Link href="/pieces" onClick={() => setOpen(false)}>
-            Commander une Pièce
+            Commander une pièce
           </Link>
 
-          {/* Messages mobile */}
-          <Link
-            href="/messages"
-            onClick={() => setOpen(false)}
-            className="flex justify-between items-center"
-          >
+          <Link href="/messages" onClick={() => setOpen(false)}>
             Messages
-
-            {unreadCount > 0 && (
-              <span className="bg-red-500 text-white text-xs px-2 py-0.5 rounded-full">
-                {unreadCount}
-              </span>
-            )}
           </Link>
+
+          {/* 🔥 Profil mobile */}
+          {isLoggedIn && (
+            <Link href="/profile" onClick={() => setOpen(false)}>
+              Mon profil
+            </Link>
+          )}
 
           <hr />
 
-          <Link
-            href="/auth/register"
-            onClick={() => setOpen(false)}
-            className="text-gray-600"
-          >
-            S'inscrire
-          </Link>
+          {!isLoggedIn ? (
+            <>
+              <Link href="/auth/register" onClick={() => setOpen(false)}>
+                S'inscrire
+              </Link>
 
-          <Link
-            href="/auth/login"
-            onClick={() => setOpen(false)}
-            className="bg-indigo-600 text-white py-2 rounded-lg text-center"
-          >
-            Se connecter
-          </Link>
+              <Link
+                href="/auth/login"
+                onClick={() => setOpen(false)}
+                className="bg-indigo-600 text-white py-2 rounded-lg text-center"
+              >
+                Se connecter
+              </Link>
+            </>
+          ) : (
+            <Link
+              href="/profile"
+              onClick={() => setOpen(false)}
+              className="bg-gray-100 py-2 rounded-lg text-center"
+            >
+              Mon profil
+            </Link>
+          )}
 
         </div>
       )}
     </nav>
   );
 }
+

@@ -100,7 +100,7 @@ export default function PieceOrderForm() {
         onClick={handleSubmit}
         className="w-full bg-indigo-600 text-white py-3 rounded-lg"
       >
-        Order part
+        Commander
       </button>
 
     </div>

@@ -5,6 +5,7 @@ import CarouselMedia from "@/components/CarouselMedia";
 import SellerCard from "@/components/SellerCard";
 import TransportCTA from "@/components/TransportCTA";
 import Link from "next/link";
+import PageHeader from "@/components/PageHeader";
 
 export default function AnnonceDetail() {
   // mock data
@@ -25,6 +26,9 @@ export default function AnnonceDetail() {
 
   return (
     <main className="px-6 md:px-10 py-10">
+      
+      <PageHeader title="Location vehicule" />
+
       <div className="grid lg:grid-cols-3 gap-10">
         {/* LEFT */}
         <div className="lg:col-span-2 space-y-6">
@@ -70,19 +74,6 @@ export default function AnnonceDetail() {
                 Contact seller
               </Link>
 
-              {/* 👉 On garde UN SEUL système */}
-              {/* {annonce.isImported && (
-                <button
-                  onClick={() => {
-                    document
-                      .getElementById("transport-section")
-                      ?.scrollIntoView({ behavior: "smooth" })
-                  }}
-                  className="w-full border py-3 rounded-lg"
-                >
-                  Estimate transport
-                </button>
-              )} */}
             </div>
           </div>
 
