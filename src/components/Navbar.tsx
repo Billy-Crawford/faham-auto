@@ -48,12 +48,13 @@ export default function Navbar() {
             )}
           </div>
 
-          {/* 🔥 Profil */}
-          {isLoggedIn && (
+          {/*  Profil */}
+
+          {/* {isLoggedIn && (
             <Link href="/profile" className="hover:text-black font-medium">
               Profil
             </Link>
-          )}
+          )} */}
 
         </div>
 
@@ -114,12 +115,13 @@ export default function Navbar() {
             Messages
           </Link>
 
-          {/* 🔥 Profil mobile */}
-          {isLoggedIn && (
+          {/* Profil mobile */}
+          
+          {/* {isLoggedIn && (
             <Link href="/profile" onClick={() => setOpen(false)}>
-              Mon profil
+              Profil
             </Link>
-          )}
+          )} */}
 
           <hr />
 
